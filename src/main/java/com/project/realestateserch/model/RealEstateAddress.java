@@ -1,7 +1,9 @@
 package com.project.realestateserch.model;
 
 
-public class RealEstateGeographicalParam {
+import java.util.Objects;
+
+public class RealEstateAddress {
     private String country;
     private String district;
     private String city;
@@ -46,5 +48,18 @@ public class RealEstateGeographicalParam {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RealEstateAddress that = (RealEstateAddress) o;
+        return Objects.equals(country, that.country) && Objects.equals(district, that.district) && Objects.equals(city, that.city) && Objects.equals(street, that.street) && Objects.equals(number, that.number);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(country, district, city, street, number);
     }
 }

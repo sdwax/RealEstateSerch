@@ -1,14 +1,14 @@
 package com.project.realestateserch.repository;
 
-import com.project.realestateserch.model.RealEstateDto;
+import com.project.realestateserch.model.RealEstate;
 
-import java.util.Set;
+import java.util.List;
 
 public interface Storage {
 
-    void save(RealEstateDto dto);
+    void saveRealEstate(List<RealEstate> realEstates);
 
-    void update(RealEstateDto dto);
+    List<RealEstate> getAll();
 
-    Set<RealEstateDto> findAll();
+    Integer getCount();
 }

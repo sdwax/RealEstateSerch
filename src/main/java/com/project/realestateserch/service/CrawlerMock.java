@@ -9,33 +9,26 @@ import java.util.List;
 @Service
 public class CrawlerMock implements Crawler {
     @Override
-    public List<RealEstateDto> findRealEstateData(String url) {
-        ArrayList<RealEstateDto> realEstates = new ArrayList<>();
+    public List<RealEstate> getRealEstateData() {
+        ArrayList<RealEstate> realEstates = new ArrayList<>();
 
         for (int i = 0; i <= 10; i++) {
-            RealEstateGeographicalParam houseOneGeographicalParam = new RealEstateGeographicalParam();
-            houseOneGeographicalParam.setCountry("Україна__" + i);
+            RealEstateAddress houseOneGeographicalParam = new RealEstateAddress();
+            houseOneGeographicalParam.setCountry("Україна__1" + i);
             houseOneGeographicalParam.setDistrict("Черкаська__" + i);
             houseOneGeographicalParam.setCity("Черкаси__" + i);
             houseOneGeographicalParam.setStreet("Гагаріна__" + i);
             houseOneGeographicalParam.setNumber(17 + i);
 
-            RealEstatePhysicalParam hoseOnePhysicalParam = new RealEstatePhysicalParam();
-            hoseOnePhysicalParam.setFloor(10 + i);
-            hoseOnePhysicalParam.setSquare(20 + i);
-            hoseOnePhysicalParam.setNumberOfRooms(2 + i);
+            RealEstate house = new RealEstate();
+            house.setType(RealEstateType.HOUSE);
+            house.setAddress(houseOneGeographicalParam);
+            house.setFloor(10 + i);
+            house.setArea(20 + i);
+            house.setNumberOfRooms(2 + i);
+            house.setPrice(18000 + i);
 
-            RealEstateFinanceParam houseOneFinanceParam = new RealEstateFinanceParam();
-            houseOneFinanceParam.setPrice(18000 + i);
-
-
-            RealEstateDto houseOne = new RealEstateDto();
-            houseOne.setRealEstateType(RealEstateType.HOUSE);
-            houseOne.setGeographicalParam(houseOneGeographicalParam);
-            houseOne.setPhysicalParam(hoseOnePhysicalParam);
-            houseOne.setFinanceParam(houseOneFinanceParam);
-
-            realEstates.add(houseOne);
+            realEstates.add(house);
         }
 
         return realEstates;
