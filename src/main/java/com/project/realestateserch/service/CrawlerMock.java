@@ -10,7 +10,7 @@ import java.util.List;
 public class CrawlerMock implements Crawler {
     @Override
     public List<RealEstate> getRealEstateData() {
-        ArrayList<RealEstate> realEstates = new ArrayList<>();
+        List<RealEstate> realEstates = new ArrayList<>();
 
         for (int i = 0; i <= 10; i++) {
             RealEstateAddress houseOneGeographicalParam = new RealEstateAddress();
